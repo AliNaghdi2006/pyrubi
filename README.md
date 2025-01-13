@@ -1,5 +1,5 @@
 <div align='center'>
-    <img style='border-radius: 10px' src='https://iili.io/HIjPRS9.jpg' alt='pyrubi image' width='320' height='140'>
+    <img style='border-radius: 10px' src='https://freeimage.host/i/24rSIIf' alt='pyrubi image' width='320' height='140'>
     <br>
     <br>
     <b>Fast & powerfull Rubika API library</b>
