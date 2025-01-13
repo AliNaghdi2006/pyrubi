@@ -71,6 +71,6 @@ client.run()
 <hr>
 
 ### Social Media:
-### <a href='https://rubika.ir/pyrubika'>Rubika</a>
+### <a href='https://rubika.ir/pyrubi_fork'>Rubika</a>
 
 <hr>
