@@ -4,9 +4,9 @@
     <br>
     <b>Fast & powerfull Rubika API library</b>
     <br>
-    <a href='https://github.com/AliGanji1/pyrubi'>GitHub</a>
+    <a href='https://github.com/AliNaghdi2006/pyrubi'>GitHub</a>
     •
-    <a href='https://rubika.ir/pyrubi_documents'>Documents</a>
+    <a href='https://rubika.ir/pyrubi_fork'>Documents</a>
 </div>
 
 
