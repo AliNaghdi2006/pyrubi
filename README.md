@@ -20,7 +20,7 @@
 ### Install or Update:
 
 ``` bash
-pip install git+https://github.com/AliNaghdi2006/pyrubi.git
+...
 ```
 
 <hr>
