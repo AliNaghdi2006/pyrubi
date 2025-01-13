@@ -28,12 +28,12 @@ pip install git+https://github.com/AliNaghdi2006/pyrubi.git
 ### Quick start:
 
 ``` python
-from pyrubi import Client
+from pyrubi import Client, filters
 from pyrubi.types import Message
 
 client = Client("mySelf")
 
-@client.on_message(regexp="hello")
+@client.on_message(filters.text("Hello"))
 def send_hello(message: Message):
     message.reply("**hello** __from__ ##pyrubi##")
 
@@ -42,7 +42,7 @@ client.run()
 
 also you can enter your session data manually:
 ```python
-from pyrubi import Client
+from pyrubi import Client, filters
 from pyrubi.types import Message
 
 auth_key = "abcdefghijklnopkrstuvwxyzazxcqwe"
@@ -50,7 +50,7 @@ private_key = "-----BEGIN RSA PRIVATE KEY-----\n..."
 
 client = Client(auth=auth_key, private=private_key)
 
-@client.on_message(regexp="hello")
+@client.on_message(filters.text("Hi"))
 def send_hello(message: Message):
     message.reply("**hello** __from__ ##pyrubi##")
 
