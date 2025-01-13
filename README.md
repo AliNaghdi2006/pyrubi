@@ -20,7 +20,7 @@
 ### Install or Update:
 
 ``` bash
-...
+pip install https://github.com/AliNaghdi2006/pyrubi/archive/main.zip
 ```
 
 <hr>
