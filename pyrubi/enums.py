@@ -1,3 +1,28 @@
+from enum import Enum
+
+class ChatTypes(Enum):
+	User = "User"
+	Group = "Group"
+	Channel = "Channel"
+	Bot = "Bot"
+
+class MessageTypes(Enum):
+	ContactMessage = "ContactMessage"
+	Text = "Text"
+	Sticker = "Sticker"
+	FileInline = "FileInline"
+	Live = "Live"
+	Location = "Location"
+
+class EventTypes(Enum):
+	AddedGroupMembers = "AddedGroupMembers"
+	RemoveGroupMembers = "RemoveGroupMembers"
+	PinnedMessageUpdated = "PinnedMessageUpdated"
+	CreateGroupVoiceChat = "CreateGroupVoiceChat"
+	StopGroupVoiceChat = "StopGroupVoiceChat"
+	JoinedGroupByLink = "JoinedGroupByLink"
+	LeaveGroup = "LeaveGroup"
+
 class SetAdminAccessList:
     set_admin:str = "SetAdmin"
     ban_member:str = "BanMember"
