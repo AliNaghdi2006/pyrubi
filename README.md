@@ -35,7 +35,7 @@ client = Client("mySelf")
 
 @client.on_message(filters.text("Hello"))
 def send_hello(message: Message):
-    message.reply("**hello** __from__ ##pyrubi##")
+    message.reply_text("**hello** __from__ ##pyrubi##")
 
 client.run()
 ```
@@ -52,7 +52,7 @@ client = Client(auth=auth_key, private=private_key)
 
 @client.on_message(filters.text("Hi"))
 def send_hello(message: Message):
-    message.reply("**hello** __from__ ##pyrubi##")
+    message.reply_text("**hello** __from__ ##pyrubi##")
 
 client.run()
 ```
@@ -74,7 +74,3 @@ client.run()
 ### <a href='https://rubika.ir/pyrubika'>Rubika</a>
 
 <hr>
-
-### 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=AliGanji1/Pyrubi&type=Date)](https://star-history.com/#AliGanji1/Pyrubi&Date)
