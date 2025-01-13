@@ -50,7 +50,7 @@ class Socket:
         Thread(target=self.keepAlive, args=[ws]).start()
         self.handShake(ws)
         print("Connected.")
-
+    
     def onMessage(self, _, message:str) -> None:
         if not message:
             return
@@ -61,62 +61,31 @@ class Socket:
             return
         
         message:dict = loads(self.methods.crypto.decrypt(message["data_enc"]))
-
+        
         if not message.get("message_updates"):
             return
-
+        
+        message: Message = Message(
+        	message,
+        	self.methods
+        )
         for handler in self.handlers:
-            filters:list = self.handlers[handler]
-            message:Message = Message(
-                message,
-                self.methods
-            )
-
-            if filters[0]:
-                chatFilters:list = list(
-                    map(
-                        lambda x: x.lower() if Utils.isChatType(x) else x,
-                        list(
-                            filter(
-                                lambda x: Utils.isChatType(x) or Utils.getChatTypeByGuid(x),
-                                filters[0]
-                            )
-                        )
-                    )
-                )
-
-                if chatFilters:
-                    if message.object_guid in chatFilters:
-                        pass
-
-                    elif not message.chat_type.lower() in chatFilters:
-                        return
-                
-                messageFilters:list = list(
-                    map(
-                        lambda x: x.lower(),
-                        list(
-                            filter(
-                                lambda x: Utils.isMessageType(x),
-                                filters[0]
-                            )
-                        )
-                    )
-                )
-                
-                if messageFilters and not message.message_type.lower() in messageFilters:
-                    return
-                
-            if filters[1]:
-                if not match(filters[1], message.text or ""):
-                    return
-
-            Thread(
-                target=handler,
-                args=[message]
-            ).start()
-                
-
-    def addHandler(self, func, filters:list, regexp:str) -> None:
-        self.handlers[func] = (filters, regexp)
+        	filters = self.handlers[handler]
+        	Thread(
+        		target= self.handleMessages,
+        		args=(handler, filters, message)
+        	).start()
+        
+    def handleMessages(self, func: callable, filters, message: Message) -> None:
+    	if not filters:
+    		Thread(target= func, args= (message,)).start()
+    		return 
+    	if not filters(message):
+    	    return 
+    	Thread(target= func, args= (message,)).start()
+    
+    def addHandler(self, func, filters: list) -> None:
+        self.handlers[func] = filters
         return func
+
+    
