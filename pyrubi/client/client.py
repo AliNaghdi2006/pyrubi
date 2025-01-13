@@ -546,12 +546,11 @@ class Client(object):
 
         run(main())
     
-    def on_message(self, filters:list=[], regexp:str=None):
+    def on_message(self, filters: Optional[list] = None):
         def handler(func):
-            self.methods.add_handler(
-                func=func,
-                filters=filters,
-                regexp=regexp
+            self.methods.socket.addHandler(
+            	func= func,
+            	filters= filters or []
             )
         
         return handler
